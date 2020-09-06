@@ -13,11 +13,14 @@ set hidden
 
 set wildmode=longest,list,full
 set wildmenu
+set ignorecase
+set infercase 
 
 autocmd Filetype c   setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype h   setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 set number
 
 autocmd vimenter * wincmd l 
@@ -44,3 +47,6 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>  
+
+" Remove trailing whitespaces with F5
+:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>

@@ -2,6 +2,8 @@ syntax on
 set nonumber
 set ruler
 
+set background=dark
+
 set rtp+=~/.vim/autoload/pathogen.vim
 call pathogen#infect()
 

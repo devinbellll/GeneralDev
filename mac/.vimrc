@@ -35,6 +35,7 @@ autocmd Filetype h   setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+autocmd FileType vim let b:vcm_tab_complete = 'vim'
 set number
 
 nnoremap <silent><Bs> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>

@@ -44,6 +44,9 @@ nnoremap <silent><S-Bs> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 " search for visually selected text with://
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")
 
+" copy into system clipboard with control c
+:vnoremap <C-c> "+y
+
 colorscheme iceberg
 
 let g:airline#extensions#tabline#enabled = 1

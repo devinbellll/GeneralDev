@@ -41,6 +41,9 @@ set number
 nnoremap <silent><Bs> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><S-Bs> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 
+" search for visually selected text with://
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")
+
 colorscheme iceberg
 
 let g:airline#extensions#tabline#enabled = 1

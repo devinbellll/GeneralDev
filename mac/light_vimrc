@@ -5,6 +5,9 @@ set ruler
 set background=light
 colorscheme iceberg
 
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
+
 set rtp+=~/.vim/autoload/pathogen.vim
 call pathogen#infect()
 

@@ -3957,13 +3957,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.48697092646999207</real>
+				<real>0.56605307011068473</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.623779296875</real>
+				<real>0.7496337890625</real>
 				<key>Red Component</key>
-				<real>0.14851117506623268</real>
+				<real>0.11188000626862049</real>
 			</dict>
 			<key>Ansi 15 Color</key>
 			<dict>
@@ -4148,7 +4148,7 @@
 				<real>0.36078431372549019</real>
 			</dict>
 			<key>Guid</key>
-			<string>896909A2-9CCE-4C6A-8804-4C489B292221</string>
+			<string>DED1F2CF-E993-4A5E-8747-D0ED8E2B2019</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>Idle Code</key>

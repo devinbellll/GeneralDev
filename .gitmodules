@@ -1,6 +1,3 @@
-[submodule "mac/.vim/bundle/vim-airline"]
-	path = mac/.vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline
 [submodule "mac/.vim/bundle/nerdtree"]
 	path = mac/.vim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree

@@ -40,13 +40,17 @@ autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
-set number
 
 " search for visually selected text with://
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")
 
 " copy into system clipboard with control c
 :vnoremap <C-c> "+y
+
+" highlight search terms
+:set hlsearch
+" :C command will clear search buffer so that highlighting doesn't happen
+:command C let @/=""
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'

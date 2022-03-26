@@ -41,6 +41,12 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
 
+" FZF
+" set runtime path for fzf
+set rtp+=/usr/local/opt/fzf
+" map fzf searcher to ctrl-p
+nmap <C-P> :FZF<CR>
+
 " search for visually selected text with://
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")
 

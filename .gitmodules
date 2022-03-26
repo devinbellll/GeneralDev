@@ -1,9 +1,6 @@
 [submodule "mac/.vim/bundle/nerdtree"]
 	path = mac/.vim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree
-[submodule "mac/.vim/bundle/ctrlp.vim"]
-	path = mac/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
 [submodule "mac/.oh-my-zsh"]
 	path = mac/.oh-my-zsh
 	url = https://github.com/adambujak/ohmyzsh

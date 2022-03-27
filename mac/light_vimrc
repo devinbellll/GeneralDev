@@ -8,6 +8,10 @@ colorscheme iceberg
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='light'
 
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()")
+
 set rtp+=~/.vim/autoload/pathogen.vim
 call pathogen#infect()
 

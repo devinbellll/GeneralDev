@@ -4,6 +4,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'qpkorr/vim-renamer'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 set rtp+=~/.nvim/bundle/Vundle
@@ -52,6 +53,13 @@ autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
+
+" tags
+" gutentags
+" don't generate tags file if not existing
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_write = 1
 
 " FZF
 " set runtime path for fzf

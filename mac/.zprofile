@@ -5,6 +5,7 @@ source ~/venv/bin/activate
 
 alias lsusb='ioreg -p IOUSB'
 alias tmux='tmux -2'
+alias vim='nvim'
 
 #ignore ORIG_HEAD in git autocomplete
 zstyle ':completion:*:*:git*:*' ignored-patterns '*ORIG_HEAD'

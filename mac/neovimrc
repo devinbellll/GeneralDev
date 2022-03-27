@@ -4,7 +4,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'qpkorr/vim-renamer'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'adambujak/vim-gutentags'
 call plug#end()
 
 set rtp+=~/.nvim/bundle/Vundle

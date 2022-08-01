@@ -1,7 +1,12 @@
 #### COLOUR (Solarized light)
 
 # default statusbar colors
-set-option -g status-style fg=yellow,bg=white #yellow and base2
+# this is the old one - it's nice, but you can set it transparent 
+# I needed this change because I changed white text to some other color to be able to see logs
+#set-option -g status-style fg=yellow,bg=white #yellow and base2
+#transparent: 
+set -g status-style bg=default
+
 
 # default window title colors
 set-window-option -g window-status-style fg=brightyellow,bg=default #base0 and default

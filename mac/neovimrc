@@ -92,6 +92,7 @@ nmap <C-P> :FZF<CR>
 "Ag - search project
 " map ctrl f to Ag search
 nmap <C-F> :Ag
+vnoremap <C-A> y:Ag "<C-R>=escape(@",'/\')<CR>"
 
 " search for visually selected text with://
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")

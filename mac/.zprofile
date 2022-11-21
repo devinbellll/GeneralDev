@@ -6,6 +6,7 @@ source ~/venv/bin/activate
 alias lsusb='ioreg -p IOUSB'
 alias tmux='tmux -2'
 alias vim='nvim'
+alias dvim='nvim -u ~/.config/nvim/init_dark.vim'
 alias gadd='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
 
 #make ctrl p work exactly like up arrow

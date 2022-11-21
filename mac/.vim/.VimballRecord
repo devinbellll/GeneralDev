@@ -1,1 +1,0 @@
-syn-preproc-1.00.vmb: call delete('/home/freelon/.vim/doc/syn-preproc.txt')|call delete('/home/freelon/.vim/syntax/preproc.vim')

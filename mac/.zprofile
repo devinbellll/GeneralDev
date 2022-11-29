@@ -10,7 +10,9 @@ alias dvim='nvim -u ~/.config/nvim/init_dark.vim'
 alias gadd='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
 
 #make ctrl p work exactly like up arrow
-bindkey "^P" up-line-or-search
+bindkey "^P" up-line-or-beginning-search
+#make ctrl n work exactly like down arrow
+bindkey "^N" down-line-or-beginning-search
 
 #ignore ORIG_HEAD in git autocomplete
 zstyle ':completion:*:*:git*:*' ignored-patterns '*ORIG_HEAD'

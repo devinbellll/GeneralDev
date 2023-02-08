@@ -1,5 +1,7 @@
 #!/bin/bash
 
+brew install tmux
+
 rm -rf ~/.tmux ~/.tmux.conf
 
 cp .tmux.conf ~

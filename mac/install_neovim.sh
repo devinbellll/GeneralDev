@@ -1,5 +1,8 @@
 #!/bin/bash
 
+brew install nvim 
+pip3 install pynvim
+
 rm -rf ~/.config/nvim/ ~/.nvim
 
 git submodule update --init --recursive

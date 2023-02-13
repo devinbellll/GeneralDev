@@ -12,7 +12,7 @@ Plug 'adambujak/ayu-vim'
 Plug 'rking/ag.vim'
 Plug 'kqito/vim-easy-replace'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'adambujak/AirlineThemes'
 call plug#end()
 
 " visuals
@@ -21,7 +21,8 @@ set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 colorscheme ayu
 
-let g:airline_theme='zenburn'
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'

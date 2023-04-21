@@ -13,6 +13,7 @@ Plug 'rking/ag.vim'
 Plug 'kqito/vim-easy-replace'
 Plug 'vim-airline/vim-airline'
 Plug 'adambujak/AirlineThemes'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " visuals

@@ -1,0 +1,7 @@
+[user]
+	name = Adam Bujak
+	email = adamjbujak@gmail.com
+[core]
+	editor = nvim
+	excludesfile = HOME_DIRECTORY/.gitignore
+

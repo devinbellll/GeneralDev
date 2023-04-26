@@ -17,5 +17,7 @@ bindkey "^N" down-line-or-beginning-search
 #ignore ORIG_HEAD in git autocomplete
 zstyle ':completion:*:*:git*:*' ignored-patterns '*ORIG_HEAD'
 
-if [ "$TMUX" = "" ]; then tmux; fi
+if ! [ -n "$SSH_CONNECTION" ]; then
+    if [ "$TMUX" = "" ]; then tmux; fi
+fi
 

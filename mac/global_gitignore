@@ -3,3 +3,5 @@
 
 # ctags
 tags
+tags.lock
+tags.temp

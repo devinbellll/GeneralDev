@@ -38,7 +38,7 @@ set hidden
 " tab autocomplete helpers
 set wildmode=longest,list,full
 set wildmenu
-set ignorecase
+set smartcase
 set infercase 
 
 fun! <SID>StripTrailingWhitespaces()

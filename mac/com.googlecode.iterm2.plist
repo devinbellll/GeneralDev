@@ -3311,7 +3311,7 @@
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
@@ -3411,6 +3411,8 @@
 	<true/>
 	<key>PromptOnQuit</key>
 	<true/>
+	<key>RightOption</key>
+	<integer>3</integer>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>SoundForEsc</key>

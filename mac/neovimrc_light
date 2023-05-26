@@ -60,6 +60,9 @@ autocmd FileType vim let b:vcm_tab_complete = 'vim'
 " NERDTree
 " minimal ui
 let NERDTreeMinimalUI=1
+nmap <F3> :NERDTreeToggle<CR>
+nmap <F4> :NERDTreeFind<CR>
+
 
 " tags
 " gutentags
@@ -210,5 +213,5 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gd :Bclose<cr>  
 
-" Remove trailing whitespaces with F5
-:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+" Remove trailing whitespaces with F8
+:nnoremap <silent> <F8> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>

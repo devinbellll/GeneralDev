@@ -39,6 +39,7 @@ set hidden
 set wildmode=longest,list,full
 set wildmenu
 set smartcase
+set ignorecase
 set infercase 
 
 fun! <SID>StripTrailingWhitespaces()

@@ -87,6 +87,8 @@ set rtp+=~/fzf
 nmap <C-P> :FZF<CR>
 
 "Ag - search project
+"map ag command to also work
+cmap ag Ag
 " map ctrl f to Ag search
 vnoremap <C-F> y:Ag "<C-R>=escape(@",'/\')<CR>"
 

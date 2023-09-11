@@ -58,6 +58,8 @@ nmap <F4> :NERDTreeFind<CR>
 " tags
 " gutentags
 " don't generate tags file if not existing
+let g:gutentags_ctags_executable = '/opt/homebrew/Cellar/universal-ctags/p5.9.20221106.0/bin/ctags'
+let g:gutentags_project_root = ['.gutroot']
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0
 let g:gutentags_generate_on_write = 1

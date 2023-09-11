@@ -6,4 +6,6 @@ tags
 tags.lock
 tags.temp
 .ctags
+.gutctags
+.gutroot
 

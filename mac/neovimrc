@@ -81,6 +81,8 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Vertical split jump to definition
+nnoremap vd :vert winc ]<CR>
 
 " FZF
 " set runtime path for fzf

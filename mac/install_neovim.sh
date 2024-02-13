@@ -32,5 +32,3 @@ sed "s/MY_VIM_THEME_SOURCE/${THEME_PATH}/g" "neovimrc" > $HOME_PATH/.config/nvim
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.nvim/bundle/Vundle

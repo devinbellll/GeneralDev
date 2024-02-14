@@ -1,6 +1,6 @@
 " visuals
 set termguicolors     " enable true colors support
-colorscheme iceberg
+colorscheme gruvbox
 
 let g:airline_theme='zenburn'
 

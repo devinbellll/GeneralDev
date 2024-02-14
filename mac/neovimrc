@@ -17,7 +17,11 @@ Plug 'adambujak/AirlineThemes'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
-source MY_VIM_THEME_SOURCE
+if $ITERM_PROFILE == "dark"
+    source ~/.config/nvim/dark_nvim_theme.vim
+else
+    source ~/.config/nvim/light_nvim_theme.vim
+endif
 
 " editor settings
 set tabstop=4

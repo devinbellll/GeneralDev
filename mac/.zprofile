@@ -4,10 +4,10 @@ alias ibrew="arch -x86_64 /usr/local/bin/brew"
 source ~/venv/bin/activate
 
 alias lsusb='ioreg -p IOUSB'
-alias tmux='tmux -2'
 alias vim='nvim'
-alias dvim='nvim -u ~/.config/nvim/init_dark.vim'
 alias cctags='ctags --options=.ctags -R .'
+
+alias tmux='tmux -2 -L $ITERM_PROFILE'
 
 #make ctrl p work exactly like up arrow
 bindkey "^P" up-line-or-beginning-search

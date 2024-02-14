@@ -1,0 +1,11 @@
+# Mac
+.DS_Store
+
+# ctags
+tags
+tags.lock
+tags.temp
+.ctags
+.gutctags
+.gutroot
+

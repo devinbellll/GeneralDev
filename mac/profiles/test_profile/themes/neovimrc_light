@@ -1,0 +1,12 @@
+" visuals
+"set background=light
+set termguicolors     " enable true colors support
+let ayucolor="light"  " for light version of theme
+colorscheme ayu
+
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+

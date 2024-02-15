@@ -115,6 +115,9 @@ set mouse=a
 set number relativenumber
 set nu rnu
 
+" Remap decrement to Ctrl+S
+nnoremap <C-x> <C-s>
+
 "
 " buffer closing 
 "
@@ -209,9 +212,9 @@ noremap <F5> :mksession! ~/.local/share/nvim/swap/manual_session.vim<cr>
 " recall the manually saved session with <F6>
 noremap <F6> :source ~/.local/share/nvim/swap/manual_session.vim<cr>
 
-map gn :bn<cr>
-map gp :bp<cr>
-map gd :Bclose<cr>  
+nnoremap <C-l> :bn<cr>
+nnoremap <C-h> :bp<cr>
+nnoremap <C-x> :Bclose<cr>
 
 " Remove trailing whitespaces with F8
 :nnoremap <silent> <F8> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>

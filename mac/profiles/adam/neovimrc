@@ -88,6 +88,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Vertical split jump to definition
 nnoremap vd :vert winc ]<CR>
 
+" Use s as d for deleting without yanking
+nnoremap s "_d
+
 " FZF
 " set runtime path for fzf
 set rtp+=~/fzf

@@ -1,21 +1,20 @@
 call plug#begin()
 Plug 'preservim/nerdtree'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'qpkorr/vim-renamer'
-Plug 'adambujak/vim-gutentags'
 Plug 'adambujak/ayu-vim'
 Plug 'morhetz/gruvbox'
-Plug 'rking/ag.vim'
-Plug 'kqito/vim-easy-replace'
-Plug 'vim-airline/vim-airline'
-Plug 'adambujak/AirlineThemes'
 Plug 'tpope/vim-fugitive'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 call plug#end()
+
+lua require('nvim-cmp-setup')
 
 if $ITERM_PROFILE == "dark"
     source ~/.config/nvim/dark_nvim_theme.vim
@@ -45,9 +44,10 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-autocmd Filetype c   setlocal expandtab tabstop=2 shiftwidth=2
-autocmd Filetype h   setlocal expandtab tabstop=2 shiftwidth=2
-autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2
+autocmd Filetype c   setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype h   setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype cpp setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype hpp setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
@@ -58,42 +58,13 @@ let NERDTreeMinimalUI=1
 nmap <F3> :NERDTreeToggle<CR>
 nmap <F4> :NERDTreeFind<CR>
 
-
-" tags
-" gutentags
-" don't generate tags file if not existing
-let g:gutentags_ctags_executable = 'ctags'
-let g:gutentags_project_root = ['.gutroot']
-let g:gutentags_generate_on_missing = 0
-let g:gutentags_generate_on_new = 0
-let g:gutentags_generate_on_write = 1
-
-" ncm2 - autocompletion
-autocmd BufEnter * call ncm2#enable_for_buffer()
-inoremap <Tab> <c-r>=ncm2#manual_trigger(...)<cr>
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-" found' messages
-set shortmess+=c
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-inoremap <c-c> <ESC>
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Vertical split jump to definition
 nnoremap vd :vert winc ]<CR>
-
-" Use s as d for deleting without yanking
-nnoremap s "_d
 
 " FZF
 " set runtime path for fzf
 set rtp+=~/fzf
+let $FZF_DEFAULT_COMMAND='ag -g ""'
 " map fzf searcher to ctrl-p
 nmap <C-P> :FZF<CR>
 
@@ -101,7 +72,7 @@ nmap <C-P> :FZF<CR>
 "map ag command to also work
 cnoreabbrev ag Ag
 " map ctrl f to Ag search
-vnoremap <C-F> y:Ag "<C-R>=escape(@",'/\')<CR>"
+vnoremap <C-F> y:Ag <C-R>=escape(@",'/\')<CR>
 
 " search for visually selected text with://
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")
@@ -118,96 +89,11 @@ set mouse=a
 set number relativenumber
 set nu rnu
 
-" Remap decrement to Ctrl+S
-nnoremap <C-x> <C-s>
-
-"
-" buffer closing 
-"
-" Delete buffer while keeping window layout (don't close buffer's windows).
-" Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
-if v:version < 700 || exists('loaded_bclose') || &cp
-  finish
-endif
-let loaded_bclose = 1
-if !exists('bclose_multiple')
-  let bclose_multiple = 1
-endif
-
-" Display an error message.
-function! s:Warn(msg)
-  echohl ErrorMsg
-  echomsg a:msg
-  echohl NONE
-endfunction
-
-" Command ':Bclose' executes ':bd' to delete buffer in current window.
-" The window will show the alternate buffer (Ctrl-^) if it exists,
-" or the previous buffer (:bp), or a blank buffer if no previous.
-" Command ':Bclose!' is the same, but executes ':bd!' (discard changes).
-" An optional argument can specify which buffer to close (name or number).
-function! s:Bclose(bang, buffer)
-  if empty(a:buffer)
-    let btarget = bufnr('%')
-  elseif a:buffer =~ '^\d\+$'
-    let btarget = bufnr(str2nr(a:buffer))
-  else
-    let btarget = bufnr(a:buffer)
-  endif
-  if btarget < 0
-    call s:Warn('No matching buffer for '.a:buffer)
-    return
-  endif
-  if empty(a:bang) && getbufvar(btarget, '&modified')
-    call s:Warn('No write since last change for buffer '.btarget.' (use :Bclose!)')
-    return
-  endif
-  " Numbers of windows that view target buffer which we will delete.
-  let wnums = filter(range(1, winnr('$')), 'winbufnr(v:val) == btarget')
-  if !g:bclose_multiple && len(wnums) > 1
-    call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
-    return
-  endif
-  let wcurrent = winnr()
-  for w in wnums
-    execute w.'wincmd w'
-    let prevbuf = bufnr('#')
-    if prevbuf > 0 && buflisted(prevbuf) && prevbuf != btarget
-      buffer #
-    else
-      bprevious
-    endif
-    if btarget == bufnr('%')
-      " Numbers of listed buffers which are not the target to be deleted.
-      let blisted = filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != btarget')
-      " Listed, not target, and not displayed.
-      let bhidden = filter(copy(blisted), 'bufwinnr(v:val) < 0')
-      " Take the first buffer, if any (could be more intelligent).
-      let bjump = (bhidden + blisted + [-1])[0]
-      if bjump > 0
-        execute 'buffer '.bjump
-      else
-        execute 'enew'.a:bang
-      endif
-    endif
-  endfor
-  execute 'bdelete'.a:bang.' '.btarget
-  execute wcurrent.'wincmd w'
-endfunction
-command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
-nnoremap <silent> <Leader>bd :Bclose<CR>
-
 " Automatically save the current session whenever vim is closed
 autocmd VimLeave * mksession! ~/.local/share/nvim/swap/shutdown_session.vim
 
 " <F7> restores that 'shutdown session'
 noremap <F7> :source ~/.local/share/nvim/swap/shutdown_session.vim<CR>
-
-" If you really want to, this next line should restore the shutdown session
-" automatically, whenever you start vim.  (Commented out for now, in case
-" somebody just copy/pastes this whole block)
-"
-autocmd VimEnter source ~/.local/share/nvim/swap/shutdown_session.vim<CR>
 
 " manually save a session with <F5>
 noremap <F5> :mksession! ~/.local/share/nvim/swap/manual_session.vim<cr>
@@ -215,9 +101,13 @@ noremap <F5> :mksession! ~/.local/share/nvim/swap/manual_session.vim<cr>
 " recall the manually saved session with <F6>
 noremap <F6> :source ~/.local/share/nvim/swap/manual_session.vim<cr>
 
-nnoremap <C-l> :bn<cr>
-nnoremap <C-h> :bp<cr>
-nnoremap <C-x> :Bclose<cr>
+" toggle buffer (switch between current and last buffer)
+nnoremap <silent> <C-s> <C-^>
+nnoremap <silent> <C-a> :Buffers<CR>
+nnoremap <silent> <C-x> :bd<CR>
+nnoremap <silent> <space>rr :Tags<CR>
+nnoremap <silent> <space>mm :Marks<CR>
+nnoremap <silent> <space>rb :BTags<CR>
 
 " Remove trailing whitespaces with F8
 :nnoremap <silent> <F8> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>

@@ -81,6 +81,16 @@ nvim_lsp.clangd.setup {
 }
 
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.rust_analyzer.setup{
+  on_attach = function(client)
+    -- Disable LSP syntax highlighting
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+  handlers = {
+    ["textDocument/publishDiagnostics"] = function() end,
+  },
+  capabilities = capabilities
+}
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)

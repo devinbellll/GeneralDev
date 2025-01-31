@@ -14,6 +14,11 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'RRethy/vim-illuminate'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'aaronik/treewalker.nvim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 lua require('nvim-cmp-setup')
@@ -45,12 +50,16 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+" needed to fix comment highlighting in rust
+autocmd FileType rust syntax match rustDocComment +\/\/\//!.*\|\/\/\/.*+ containedin=rustComment
+
+autocmd FileType c,cpp,java,php,ruby,python,rust autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd Filetype c   setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype h   setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype cpp setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype hpp setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype rust setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
 

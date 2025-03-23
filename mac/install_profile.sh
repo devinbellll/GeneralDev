@@ -55,7 +55,7 @@ rm -rf ~/.config/nvim/ ~/.nvim
 mkdir -p ~/.config/nvim
 mkdir -p ~/.nvim
 
-cp $PROFILE_PATH/neovimrc ~/.config/nvim/init.vim
+sh neovim/install.sh
 
 ######################################################################
 ############################## tmux ##################################

@@ -81,6 +81,7 @@ nvim_lsp.clangd.setup {
 }
 
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.rust_analyzer.setup{
   on_attach = function(client)
     -- Disable LSP syntax highlighting
@@ -112,7 +113,7 @@ end
 
 disable_virtual_text()
 
-vim.api.nvim_set_keymap('n', '<space>ed', '<cmd>lua disable_virtual_text()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<space>ee', '<cmd>lua enable_virtual_text()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ed', '<cmd>lua disable_virtual_text()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ee', '<cmd>lua enable_virtual_text()<cr>', { noremap = true, silent = true })
 
 

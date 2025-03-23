@@ -45,7 +45,8 @@ rustup component add rust-analyzer
 ############################## nvim ##################################
 ######################################################################
 
-brew install nvim 
+brew install nvim
+brew install lua-language-server
 pip3 install pynvim
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

@@ -20,10 +20,11 @@ autoload -Uz vcs_info
 turquoise="$fg[cyan]"
 orange="$fg[yellow]"
 purple="$fg[magenta]"
-hotpink="$fg[red]"
-limegreen="$fg[green]"
+# "%F{9}" => brightred ANSI color
+hotpink="%F{9}"
+green="$fg[green]"
+yellow="$fg[yellow]"
 branchname="$fg[cyan]"
-dirname="$fg[green]"
 
 # enable VCS systems you use
 zstyle ':vcs_info:*' enable git svn
@@ -41,8 +42,8 @@ zstyle ':vcs_info:*:prompt:*' check-for-changes true
 # %S - path in the repository
 PR_RST="%{${reset_color}%}"
 FMT_BRANCH=" on %{$branchname%}%b%u%c${PR_RST}"
-FMT_ACTION=" performing a %{$limegreen%}%a${PR_RST}"
-T_UNSTAGED="%{$yellow%} ●"
+FMT_ACTION=" performing a %{$green%}%a${PR_RST}"
+FMT_UNSTAGED="%{$yellow%} ●"
 FMT_STAGED="%{$green%} ●"
 
 zstyle ":vcs_info:*:prompt:*" unstagedstr   "${FMT_UNSTAGED}"
@@ -85,4 +86,4 @@ function steeef_precmd {
 }
 add-zsh-hook precmd steeef_precmd
 
-PROMPT=$'%{$dirname%}%~%{$reset_color%}$(ruby_prompt_info " with%{$fg[red]%} " v g "%{$reset_color%}")$vcs_info_msg_0_ \n> '
+PROMPT=$'%{$green%}%~%{$reset_color%}$(ruby_prompt_info " with%{$fg[red]%} " v g "%{$reset_color%}")$vcs_info_msg_0_ \n> '

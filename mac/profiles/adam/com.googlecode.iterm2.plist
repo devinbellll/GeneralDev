@@ -6723,6 +6723,8 @@
 			<false/>
 			<key>Use Cursor Guide (Light)</key>
 			<false/>
+			<key>Use Custom Window Title</key>
+			<true/>
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
@@ -6736,9 +6738,9 @@
 			<key>Use Tab Color</key>
 			<true/>
 			<key>Use Tab Color (Dark)</key>
-			<true/>
+			<false/>
 			<key>Use Tab Color (Light)</key>
-			<true/>
+			<false/>
 			<key>Use Underline Color</key>
 			<true/>
 			<key>Use Underline Color (Dark)</key>
@@ -6750,7 +6752,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>12</integer>
+			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/adambujak</string>
 		</dict>
@@ -6759,6 +6761,8 @@
 	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PassOnControlClick</key>
+	<true/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>

@@ -1,8 +1,0 @@
-" visuals
-set termguicolors     " enable true colors support
-colorscheme gruvbox
-
-let g:airline_theme='zenburn'
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'

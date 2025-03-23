@@ -17,22 +17,13 @@ setopt prompt_subst
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
 
-#use extended color palette if available
-if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
-    turquoise="%F{81}"
-    orange="%F{166}"
-    purple="%F{135}"
-    hotpink="%F{160}"
-    deepblue="%F{24}"
-    green="$fg[green]"
-    yellow="$fg[yellow]"
-else
-    turquoise="$fg[cyan]"
-    orange="$fg[yellow]"
-    purple="$fg[magenta]"
-    hotpink="$fg[red]"
-    deepblue="$fg[blue]"
-fi
+turquoise="$fg[cyan]"
+orange="$fg[yellow]"
+purple="$fg[magenta]"
+hotpink="$fg[red]"
+limegreen="$fg[green]"
+branchname="$fg[cyan]"
+dirname="$fg[green]"
 
 # enable VCS systems you use
 zstyle ':vcs_info:*' enable git svn
@@ -49,9 +40,9 @@ zstyle ':vcs_info:*:prompt:*' check-for-changes true
 # %R - repository path
 # %S - path in the repository
 PR_RST="%{${reset_color}%}"
-FMT_BRANCH=" on %{$turquoise%}%b%u%c${PR_RST}"
+FMT_BRANCH=" on %{$branchname%}%b%u%c${PR_RST}"
 FMT_ACTION=" performing a %{$limegreen%}%a${PR_RST}"
-FMT_UNSTAGED="%{$yellow%} ●"
+T_UNSTAGED="%{$yellow%} ●"
 FMT_STAGED="%{$green%} ●"
 
 zstyle ":vcs_info:*:prompt:*" unstagedstr   "${FMT_UNSTAGED}"
@@ -59,7 +50,6 @@ zstyle ":vcs_info:*:prompt:*" stagedstr     "${FMT_STAGED}"
 zstyle ":vcs_info:*:prompt:*" actionformats "${FMT_BRANCH}${FMT_ACTION}"
 zstyle ":vcs_info:*:prompt:*" formats       "${FMT_BRANCH}"
 zstyle ":vcs_info:*:prompt:*" nvcsformats   ""
-
 
 function steeef_preexec {
     case "$2" in
@@ -83,9 +73,9 @@ function steeef_precmd {
         # check for untracked files or updated submodules, since vcs_info doesn't
         if [[ ! -z $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
             PR_GIT_UPDATE=1
-            FMT_BRANCH="${PM_RST} %{$turquoise%}(%b)%u%c%{$hotpink%} ●${PR_RST}"
+            FMT_BRANCH="${PM_RST} %{$branchname%}(%b)%u%c%{$hotpink%} ●${PR_RST}"
         else
-            FMT_BRANCH="${PM_RST} %{$turquoise%}(%b)%u%c${PR_RST}"
+            FMT_BRANCH="${PM_RST} %{$branchname%}(%b)%u%c${PR_RST}"
         fi
         zstyle ":vcs_info:*:prompt:*" formats       "${FMT_BRANCH}"
 
@@ -95,5 +85,4 @@ function steeef_precmd {
 }
 add-zsh-hook precmd steeef_precmd
 
-PROMPT=$'%{$deepblue%}%~%{$reset_color%}$(ruby_prompt_info " with%{$fg[red]%} " v g "%{$reset_color%}")$vcs_info_msg_0_ \n> '
-
+PROMPT=$'%{$dirname%}%~%{$reset_color%}$(ruby_prompt_info " with%{$fg[red]%} " v g "%{$reset_color%}")$vcs_info_msg_0_ \n> '

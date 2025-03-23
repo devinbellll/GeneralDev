@@ -26,12 +26,6 @@ call plug#end()
 lua require('nvim-cmp-setup')
 lua require('rose-pine')
 
-"if $ITERM_PROFILE == "dark"
-"    source ~/.config/nvim/dark_nvim_theme.vim
-"else
-"    source ~/.config/nvim/light_nvim_theme.vim
-"endif
-
 " editor settings
 set tabstop=4
 set shiftwidth=4 " controls the depth of autoindentation

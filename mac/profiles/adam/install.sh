@@ -14,5 +14,5 @@ cp themes/neovimrc_light ~/.config/nvim/light_nvim_theme.vim
 cp -R lua ~/.config/nvim/
 
 # append tmux theme to existing tmux
-cat themes/light_tmux_theme >> ~/.tmux.conf
+cat themes/tmux_theme >> ~/.tmux.conf
 tmux source-file ~/.tmux.conf

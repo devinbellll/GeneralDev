@@ -20,15 +20,17 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'aaronik/treewalker.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'rose-pine/neovim'
 call plug#end()
 
 lua require('nvim-cmp-setup')
+lua require('rose-pine')
 
-if $ITERM_PROFILE == "dark"
-    source ~/.config/nvim/dark_nvim_theme.vim
-else
-    source ~/.config/nvim/light_nvim_theme.vim
-endif
+"if $ITERM_PROFILE == "dark"
+"    source ~/.config/nvim/dark_nvim_theme.vim
+"else
+"    source ~/.config/nvim/light_nvim_theme.vim
+"endif
 
 " editor settings
 set tabstop=4

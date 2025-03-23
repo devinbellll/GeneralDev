@@ -2356,6 +2356,8 @@
 	<integer>1</integer>
 	<key>LeftTabBarWidth</key>
 	<real>100</real>
+	<key>MaximumFrameRate</key>
+	<real>120</real>
 	<key>MinimalSplitPaneDividerProminence</key>
 	<real>0.019999999552965164</real>
 	<key>MinimalTabStyleBackgroundColorDifference</key>
@@ -3289,7 +3291,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>140</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -3676,7 +3678,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>54</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>

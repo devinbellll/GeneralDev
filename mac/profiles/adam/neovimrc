@@ -19,6 +19,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'aaronik/treewalker.nvim'
 Plug 'rust-lang/rust.vim'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 lua require('nvim-cmp-setup')

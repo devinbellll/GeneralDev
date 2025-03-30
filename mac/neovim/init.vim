@@ -19,6 +19,8 @@ Plug 'aaronik/treewalker.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'rose-pine/neovim'
+Plug 'tpope/vim-surround'
+Plug 'mbbill/undotree'
 call plug#end()
 
 " Set leader to space
@@ -33,7 +35,11 @@ lua require('theme')
 autocmd BufWritePre * :%s/\s\+$//e
 
 " needed to fix comment highlighting in rust
-autocmd FileType rust syntax match rustDocComment +\/\/\//!.*\|\/\/\/.*+ containedin=rustComment
+augroup RustDocCommentColor
+  autocmd!
+  autocmd FileType rust syntax match rustDocComment +\/\/!.*\|\/\/\/.*+ containedin=rustComment
+  autocmd FileType rust highlight link rustDocComment Comment
+augroup END
 
 " Consolidated autocommand group for filetypes
 augroup FileTypeSettings

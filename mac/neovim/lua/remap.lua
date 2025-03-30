@@ -32,6 +32,9 @@ vim.api.nvim_set_keymap('n', '<Leader>rb', ':BTags<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('i', '<C-j>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-k>', '<Nop>', { noremap = true, silent = true })
 
+-- bring up undo tree with leader u
+vim.api.nvim_set_keymap('n', '<Leader>u', ':UndotreeToggle<CR>', { noremap = true, silent = true })
+
 -- Primeagen
 
 -- move blocks

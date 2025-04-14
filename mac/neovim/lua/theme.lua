@@ -78,3 +78,19 @@ require("rose-pine").setup({
 })
 
 vim.cmd("colorscheme rose-pine")
+
+-- Light theme
+vim.api.nvim_create_user_command('Light', function()
+  local ok, _ = pcall(vim.cmd, 'colorscheme rose-pine-dawn')
+  if not ok then
+    vim.notify('rose-pine-dawn not found', vim.log.levels.ERROR)
+  end
+end, {})
+
+-- Dark theme
+vim.api.nvim_create_user_command('Dark', function()
+  local ok, _ = pcall(vim.cmd, 'colorscheme rose-pine-moon')
+  if not ok then
+    vim.notify('rose-pine-moon not found', vim.log.levels.ERROR)
+  end
+end, {})

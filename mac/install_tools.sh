@@ -24,6 +24,7 @@ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install fzf
 brew install the_silver_searcher
 brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ######################################################################
 ############################# python #################################

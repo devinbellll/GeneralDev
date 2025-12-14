@@ -67,31 +67,10 @@ cmp.setup.cmdline(':', {
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local nvim_lsp = require('lspconfig')
-nvim_lsp.clangd.setup {
-  on_attach = function(client)
-    -- Disable LSP syntax highlighting
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-  handlers = {
-    ["textDocument/publishDiagnostics"] = function() end,
-  },
-  capabilities = capabilities
-}
-
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.lua_ls.setup{}
-require'lspconfig'.rust_analyzer.setup{
-  on_attach = function(client)
-    -- Disable LSP syntax highlighting
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-  handlers = {
-    ["textDocument/publishDiagnostics"] = function() end,
-  },
-  capabilities = capabilities
-}
+vim.lsp.enable('clangd')
+vim.lsp.enable('pyright')
+vim.lsp.enable('lua')
+vim.lsp.enable('rust_analyzer')
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
